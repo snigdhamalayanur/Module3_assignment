@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app='NarrowItDownApp'>
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="stylesheet.css">
+    <title> NARROW IT DOWN APP !!</title>
+  </head>
+  <body>
+      <div ng-controller="NarrowItDownController as menu" >
+          <h2> NARROW DOWN YOUR CHINESE MENU !!</h2>
+          <input type="text" ng-model="searchTerm" placeholder="Enter menu to search"> 
+          <button ng-click="menu.getMatchedItems(searchTerm)">NarrowItDown!</button>
+          <button ng-click="menu.getItems();">display</button>
+         <br>
+         {{searchTerm}}
+      
+           <search-item 
+           my-list ="menu"
+            foundArray="menu.foundArray"
+            on-remove="menu.removeItem(index)">
+            </search-item> 
+      
+<div class="error" ng-hide="menu.message"> OOPS !! No items found </div>
+
+      </div>
+  </body>
+</html>
